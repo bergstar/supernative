@@ -25,9 +25,11 @@ use App\NativeComponents\InstagramPost;
 use App\NativeComponents\InstagramProfile;
 use App\NativeComponents\InstagramSearch;
 use App\NativeComponents\ItemDetail;
+use App\NativeComponents\Layouts\NativeStackLayout;
 use App\NativeComponents\Layouts\StackLayout;
 use App\NativeComponents\Layouts\SyncUpTabsLayout;
 use App\NativeComponents\Layouts\TabsLayout;
+use App\NativeComponents\NativeChromeDemo;
 use App\NativeComponents\Profile;
 use App\NativeComponents\SpotifyArtist;
 use App\NativeComponents\SpotifyHome;
@@ -128,6 +130,11 @@ Route::native('/syncup/chat/{id}', SyncUpChat::class)
     ->layout(StackLayout::class)
     ->name('syncup.chat');
 Route::native('/syncup/login', SyncUpLogin::class)->name('syncup.login');
+
+// ── Native chrome (Phase 2 alpha) — NavigationStack-rendered top bar ──
+Route::native('/native-chrome', NativeChromeDemo::class)
+    ->layout(NativeStackLayout::class)
+    ->name('native.chrome');
 
 // ── Extras ──
 Route::native('/benchmark', BenchmarkComponent::class)->name('benchmark');
