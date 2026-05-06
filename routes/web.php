@@ -16,24 +16,18 @@ use App\NativeComponents\ItemDetail;
 use App\NativeComponents\Layouts\NativeStackLayout;
 use App\NativeComponents\Layouts\NativeTabsLayout;
 use App\NativeComponents\Layouts\StackLayout;
-use App\NativeComponents\Layouts\SyncUpTabsLayout;
 use App\NativeComponents\Layouts\TabsLayout;
 use App\NativeComponents\NativeChromeDemo;
 use App\NativeComponents\NativeChromeDetail;
 use App\NativeComponents\NativeTabsHome;
 use App\NativeComponents\NativeTabsProfile;
 use App\NativeComponents\Profile;
-use App\NativeComponents\SyncUpChat;
-use App\NativeComponents\SyncUpChats;
-use App\NativeComponents\SyncUpFriends;
-use App\NativeComponents\SyncUpLogin;
 use App\NativeComponents\SyncUpNative\Layouts\SyncUpNativeTabsLayout;
 use App\NativeComponents\SyncUpNative\SyncUpNativeChat;
 use App\NativeComponents\SyncUpNative\SyncUpNativeChats;
 use App\NativeComponents\SyncUpNative\SyncUpNativeFriends;
 use App\NativeComponents\SyncUpNative\SyncUpNativeLogin;
 use App\NativeComponents\SyncUpNative\SyncUpNativeProfile;
-use App\NativeComponents\SyncUpProfile;
 use App\NativeComponents\TestLayout;
 use Illuminate\Support\Facades\Route;
 use Native\Mobile\Edge\BenchmarkComponent;
@@ -72,18 +66,6 @@ Route::nativeGroup(StackLayout::class, function () {
     // Mini app demos
     Route::native('/counter', Counter::class)->name('counter');
 });
-
-// SyncUp messaging — three tab roots share SyncUpTabsLayout; chat detail
-// pushes via StackLayout; login is a chrome-less entry screen.
-Route::nativeGroup(SyncUpTabsLayout::class, function () {
-    Route::native('/syncup', SyncUpChats::class)->name('syncup.chats');
-    Route::native('/syncup/friends', SyncUpFriends::class)->name('syncup.friends');
-    Route::native('/syncup/profile', SyncUpProfile::class)->name('syncup.profile');
-});
-Route::native('/syncup/chat/{id}', SyncUpChat::class)
-    ->layout(StackLayout::class)
-    ->name('syncup.chat');
-Route::native('/syncup/login', SyncUpLogin::class)->name('syncup.login');
 
 // SyncUp messaging (native chrome variant) — same demo running through
 // SwiftUI's TabView + per-tab NavigationStack instead of the custom
