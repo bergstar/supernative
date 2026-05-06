@@ -12,10 +12,6 @@ use App\NativeComponents\ExploreLayout;
 use App\NativeComponents\ExploreSheets;
 use App\NativeComponents\ExploreTypography;
 use App\NativeComponents\Home;
-use App\NativeComponents\InstagramFeed;
-use App\NativeComponents\InstagramPost;
-use App\NativeComponents\InstagramProfile;
-use App\NativeComponents\InstagramSearch;
 use App\NativeComponents\ItemDetail;
 use App\NativeComponents\Layouts\NativeStackLayout;
 use App\NativeComponents\Layouts\NativeTabsLayout;
@@ -82,18 +78,12 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
 
     // Mini app demos
-    Route::native('/instagram', InstagramFeed::class)->name('instagram.feed');
     Route::native('/spotify', SpotifyHome::class)->name('spotify.home');
     Route::native('/youtube', YouTubeHome::class)->name('youtube.home');
     Route::native('/counter', Counter::class)->name('counter');
 });
 
 // ── Demo INNER routes — keep their own custom blade chrome ──
-// Instagram
-Route::native('/instagram/post/{id}', InstagramPost::class)->name('instagram.post');
-Route::native('/instagram/profile/{id}', InstagramProfile::class)->name('instagram.profile');
-Route::native('/instagram/search', InstagramSearch::class)->name('instagram.search');
-
 // Spotify
 Route::native('/spotify/playlist/{id}', SpotifyPlaylist::class)->name('spotify.playlist');
 Route::native('/spotify/artist/{id}', SpotifyArtist::class)->name('spotify.artist');
