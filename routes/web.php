@@ -1,12 +1,17 @@
 <?php
 
-use App\NativeComponents\DemoLauncher;
-use App\NativeComponents\Layouts\NativeStackLayout;
+use App\NativeComponents\CheckboxShowcase;
+use App\NativeComponents\Home;
+use App\NativeComponents\Layouts\NativeTabsLayout;
+use App\NativeComponents\SelectorShowcase;
+use App\NativeComponents\SliderShowcase;
+use App\NativeComponents\TextInputShowcase;
 use Illuminate\Support\Facades\Route;
 
-// ── Demo launcher (root) ──
-// Wrapped in NativeStackLayout so the title bar renders via SwiftUI's
-// NavigationStack — fixed at the top, with Liquid Glass on iOS 26+.
-Route::nativeGroup(NativeStackLayout::class, function () {
-    Route::native('/', DemoLauncher::class)->name('demos');
+Route::nativeGroup(NativeTabsLayout::class, function () {
+    Route::native('/', Home::class)->name('home');
+    Route::native('/slider', SliderShowcase::class)->name('slider');
+    Route::native('/text', TextInputShowcase::class)->name('text');
+    Route::native('/checkbox', CheckboxShowcase::class)->name('checkbox');
+    Route::native('/selector', SelectorShowcase::class)->name('selector');
 });
