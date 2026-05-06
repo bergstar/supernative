@@ -7,9 +7,8 @@ use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
 
 /**
- * Top-level launcher screen — lists every demo app in the project.
- * Tapping a row pushes that demo onto the navigation stack; the framework
- * TopBar (via StackLayout) provides a back chevron to return here.
+ * Top-level launcher screen — kept as a placeholder for the root route
+ * until slice 16 replaces it with the new tabbed glass home.
  */
 class DemoLauncher extends NativeComponent
 {
