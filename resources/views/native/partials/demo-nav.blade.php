@@ -9,7 +9,6 @@
     />
 
     <native:side-nav-item id="explore" icon="search" url="/" label="Airbnb" />
-    <native:side-nav-item id="twitter" icon="chat_bubble" url="/twitter" label="Twitter / X" />
     <native:side-nav-item id="ikea" icon="weekend" url="/ikea" label="IKEA" />
     <native:side-nav-item id="facebook" icon="people" url="/facebook" label="Facebook" />
     <native:side-nav-item id="instagram" icon="camera_alt" url="/instagram" label="Instagram" />

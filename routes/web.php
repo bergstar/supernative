@@ -2,7 +2,6 @@
 
 use App\NativeComponents\Browse;
 use App\NativeComponents\ButtonsForm;
-use App\NativeComponents\ComposeTweet;
 use App\NativeComponents\Counter;
 use App\NativeComponents\DemoLauncher;
 use App\NativeComponents\ExploreButtons;
@@ -52,9 +51,6 @@ use App\NativeComponents\SyncUpNative\SyncUpNativeLogin;
 use App\NativeComponents\SyncUpNative\SyncUpNativeProfile;
 use App\NativeComponents\SyncUpProfile;
 use App\NativeComponents\TestLayout;
-use App\NativeComponents\TweetDetail;
-use App\NativeComponents\TwitterFeed;
-use App\NativeComponents\TwitterProfile;
 use App\NativeComponents\YouTubeChannel;
 use App\NativeComponents\YouTubeHome;
 use App\NativeComponents\YouTubeSearch;
@@ -71,8 +67,8 @@ Route::nativeGroup(NativeStackLayout::class, function () {
 
 // ── Layout demo (Tabs) ──
 Route::nativeGroup(TabsLayout::class, function () {
-    Route::native('/tabs',         Home::class)->name('home');
-    Route::native('/tabs/browse',  Browse::class)->name('browse');
+    Route::native('/tabs', Home::class)->name('home');
+    Route::native('/tabs/browse', Browse::class)->name('browse');
     Route::native('/tabs/profile', Profile::class)->name('profile');
 });
 
@@ -94,7 +90,6 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
 
     // Mini app demos
-    Route::native('/twitter', TwitterFeed::class)->name('twitter.feed');
     Route::native('/ikea', IkeaHome::class)->name('ikea.home');
     Route::native('/facebook', FacebookFeed::class)->name('facebook.feed');
     Route::native('/instagram', InstagramFeed::class)->name('instagram.feed');
@@ -104,11 +99,6 @@ Route::nativeGroup(StackLayout::class, function () {
 });
 
 // ── Demo INNER routes — keep their own custom blade chrome ──
-// Twitter / X
-Route::native('/twitter/tweet/{id}', TweetDetail::class)->name('twitter.tweet');
-Route::native('/twitter/profile/{id}', TwitterProfile::class)->name('twitter.profile');
-Route::native('/twitter/compose', ComposeTweet::class)->name('twitter.compose');
-
 // IKEA
 Route::native('/ikea/product/{id}', IkeaProduct::class)->name('ikea.product');
 Route::native('/ikea/cart', IkeaCart::class)->name('ikea.cart');
@@ -137,7 +127,7 @@ Route::native('/youtube/search', YouTubeSearch::class)->name('youtube.search');
 // SyncUp messaging — three tab roots share SyncUpTabsLayout; chat detail
 // pushes via StackLayout; login is a chrome-less entry screen.
 Route::nativeGroup(SyncUpTabsLayout::class, function () {
-    Route::native('/syncup',         SyncUpChats::class)->name('syncup.chats');
+    Route::native('/syncup', SyncUpChats::class)->name('syncup.chats');
     Route::native('/syncup/friends', SyncUpFriends::class)->name('syncup.friends');
     Route::native('/syncup/profile', SyncUpProfile::class)->name('syncup.profile');
 });
@@ -152,9 +142,9 @@ Route::native('/syncup/login', SyncUpLogin::class)->name('syncup.login');
 // tab bar persists when pushing into a chat (per-tab path tracking lets
 // the push happen INSIDE the Chats tab's NavigationStack).
 Route::nativeGroup(SyncUpNativeTabsLayout::class, function () {
-    Route::native('/syncup-native',           SyncUpNativeChats::class)->name('syncup-native.chats');
-    Route::native('/syncup-native/friends',   SyncUpNativeFriends::class)->name('syncup-native.friends');
-    Route::native('/syncup-native/profile',   SyncUpNativeProfile::class)->name('syncup-native.profile');
+    Route::native('/syncup-native', SyncUpNativeChats::class)->name('syncup-native.chats');
+    Route::native('/syncup-native/friends', SyncUpNativeFriends::class)->name('syncup-native.friends');
+    Route::native('/syncup-native/profile', SyncUpNativeProfile::class)->name('syncup-native.profile');
     Route::native('/syncup-native/chat/{id}', SyncUpNativeChat::class)->name('syncup-native.chat');
 });
 

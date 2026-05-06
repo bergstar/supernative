@@ -28,7 +28,6 @@ class DemoLauncher extends NativeComponent
 
         // ── Mini app demos ──
         ['id' => 'tabs', 'title' => 'Layout Demo', 'subtitle' => 'TabsLayout + StackLayout (Home / Browse / Profile + push detail)', 'icon' => 'dashboard', 'color' => '#6366F1', 'url' => '/tabs'],
-        ['id' => 'twitter', 'title' => 'Twitter / X', 'subtitle' => 'Feed, tweet detail, profile, compose', 'icon' => 'chat_bubble', 'color' => '#1D9BF0', 'url' => '/twitter'],
         ['id' => 'ikea', 'title' => 'IKEA', 'subtitle' => 'Home, product detail, cart, search', 'icon' => 'bed.double.fill', 'color' => '#0058A3', 'url' => '/ikea'],
         ['id' => 'facebook', 'title' => 'Facebook', 'subtitle' => 'Feed, post, profile, create', 'icon' => 'person.2.fill', 'color' => '#1877F2', 'url' => '/facebook'],
         ['id' => 'instagram', 'title' => 'Instagram', 'subtitle' => 'Feed, post, profile, search', 'icon' => 'camera', 'color' => '#E1306C', 'url' => '/instagram'],
@@ -37,7 +36,7 @@ class DemoLauncher extends NativeComponent
         ['id' => 'syncup', 'title' => 'SyncUp Messaging', 'subtitle' => 'Login, chat threads, friends, profile (5 screens) — custom chrome', 'icon' => 'chat_bubble', 'color' => '#00B4D8', 'url' => '/syncup/login'],
         ['id' => 'syncupnative', 'title' => 'SyncUp Messaging (Native)', 'subtitle' => 'Same demo through SwiftUI TabView + NavigationStack', 'icon' => 'chat_bubble', 'color' => '#0891b2', 'url' => '/syncup-native/login'],
         ['id' => 'counter', 'title' => 'Counter', 'subtitle' => 'Minimal Livewire-style counter', 'icon' => 'add', 'color' => '#10B981', 'url' => '/counter'],
-//        ['id' => 'benchmark', 'title' => 'Benchmark',        'subtitle' => 'Render perf benchmarks',                                            'icon' => 'bolt',               'color' => '#F59E0B', 'url' => '/benchmark'],
+        //        ['id' => 'benchmark', 'title' => 'Benchmark',        'subtitle' => 'Render perf benchmarks',                                            'icon' => 'bolt',               'color' => '#F59E0B', 'url' => '/benchmark'],
     ];
 
     public function navTitle(): string
