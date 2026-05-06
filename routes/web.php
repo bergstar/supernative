@@ -16,10 +16,6 @@ use App\NativeComponents\FacebookFeed;
 use App\NativeComponents\FacebookPost;
 use App\NativeComponents\FacebookProfile;
 use App\NativeComponents\Home;
-use App\NativeComponents\IkeaCart;
-use App\NativeComponents\IkeaHome;
-use App\NativeComponents\IkeaProduct;
-use App\NativeComponents\IkeaSearch;
 use App\NativeComponents\InstagramFeed;
 use App\NativeComponents\InstagramPost;
 use App\NativeComponents\InstagramProfile;
@@ -90,7 +86,6 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
 
     // Mini app demos
-    Route::native('/ikea', IkeaHome::class)->name('ikea.home');
     Route::native('/facebook', FacebookFeed::class)->name('facebook.feed');
     Route::native('/instagram', InstagramFeed::class)->name('instagram.feed');
     Route::native('/spotify', SpotifyHome::class)->name('spotify.home');
@@ -99,11 +94,6 @@ Route::nativeGroup(StackLayout::class, function () {
 });
 
 // ── Demo INNER routes — keep their own custom blade chrome ──
-// IKEA
-Route::native('/ikea/product/{id}', IkeaProduct::class)->name('ikea.product');
-Route::native('/ikea/cart', IkeaCart::class)->name('ikea.cart');
-Route::native('/ikea/search', IkeaSearch::class)->name('ikea.search');
-
 // Facebook
 Route::native('/facebook/post/{id}', FacebookPost::class)->name('facebook.post');
 Route::native('/facebook/profile/{id}', FacebookProfile::class)->name('facebook.profile');
