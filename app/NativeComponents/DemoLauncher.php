@@ -13,14 +13,7 @@ use Native\Mobile\Edge\NativeComponent;
  */
 class DemoLauncher extends NativeComponent
 {
-    public array $demos = [
-        ['id' => 'buttonsform', 'title' => 'Buttons (Form)', 'subtitle' => 'Variants, sizes, extras in a NavigationStack + grouped form', 'icon' => 'list.bullet.rectangle', 'color' => '#0EA5E9', 'url' => '/buttons-form'],
-        ['id' => 'nativechrome', 'title' => 'Native Chrome', 'subtitle' => 'NavigationStack-rendered top bar; Liquid Glass on iOS 26+', 'icon' => 'square.stack.3d.up.fill', 'color' => '#A855F7', 'url' => '/native-chrome'],
-        ['id' => 'nativetabs', 'title' => 'Native Tabs', 'subtitle' => 'TabView-rendered bottom bar; Liquid Glass on iOS 26+', 'icon' => 'rectangle.bottomthird.inset.filled', 'color' => '#A855F7', 'url' => '/native-tabs'],
-
-        ['id' => 'counter', 'title' => 'Counter', 'subtitle' => 'Minimal Livewire-style counter', 'icon' => 'add', 'color' => '#10B981', 'url' => '/counter'],
-        //        ['id' => 'benchmark', 'title' => 'Benchmark',        'subtitle' => 'Render perf benchmarks',                                            'icon' => 'bolt',               'color' => '#F59E0B', 'url' => '/benchmark'],
-    ];
+    public array $demos = [];
 
     public function navTitle(): string
     {
