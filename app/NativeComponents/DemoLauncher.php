@@ -28,7 +28,6 @@ class DemoLauncher extends NativeComponent
 
         // ── Mini app demos ──
         ['id' => 'tabs', 'title' => 'Layout Demo', 'subtitle' => 'TabsLayout + StackLayout (Home / Browse / Profile + push detail)', 'icon' => 'dashboard', 'color' => '#6366F1', 'url' => '/tabs'],
-        ['id' => 'syncupnative', 'title' => 'SyncUp Messaging (Native)', 'subtitle' => 'Same demo through SwiftUI TabView + NavigationStack', 'icon' => 'chat_bubble', 'color' => '#0891b2', 'url' => '/syncup-native/login'],
         ['id' => 'counter', 'title' => 'Counter', 'subtitle' => 'Minimal Livewire-style counter', 'icon' => 'add', 'color' => '#10B981', 'url' => '/counter'],
         //        ['id' => 'benchmark', 'title' => 'Benchmark',        'subtitle' => 'Render perf benchmarks',                                            'icon' => 'bolt',               'color' => '#F59E0B', 'url' => '/benchmark'],
     ];
