@@ -23,10 +23,6 @@ use App\NativeComponents\NativeChromeDetail;
 use App\NativeComponents\NativeTabsHome;
 use App\NativeComponents\NativeTabsProfile;
 use App\NativeComponents\Profile;
-use App\NativeComponents\SpotifyArtist;
-use App\NativeComponents\SpotifyHome;
-use App\NativeComponents\SpotifyPlaylist;
-use App\NativeComponents\SpotifySearch;
 use App\NativeComponents\SyncUpChat;
 use App\NativeComponents\SyncUpChats;
 use App\NativeComponents\SyncUpFriends;
@@ -78,17 +74,11 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
 
     // Mini app demos
-    Route::native('/spotify', SpotifyHome::class)->name('spotify.home');
     Route::native('/youtube', YouTubeHome::class)->name('youtube.home');
     Route::native('/counter', Counter::class)->name('counter');
 });
 
 // ── Demo INNER routes — keep their own custom blade chrome ──
-// Spotify
-Route::native('/spotify/playlist/{id}', SpotifyPlaylist::class)->name('spotify.playlist');
-Route::native('/spotify/artist/{id}', SpotifyArtist::class)->name('spotify.artist');
-Route::native('/spotify/search', SpotifySearch::class)->name('spotify.search');
-
 // YouTube
 Route::native('/youtube/video/{id}', YouTubeVideo::class)->name('youtube.video');
 Route::native('/youtube/channel/{id}', YouTubeChannel::class)->name('youtube.channel');
