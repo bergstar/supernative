@@ -7,20 +7,28 @@
         "laravel",
         "framework"
     ],
-    "repositories": {
-        "mobile": {
+    "repositories": [
+        {
+            "name": "nativephp-plugins",
+            "type": "composer",
+            "url": "https://plugins.nativephp.com"
+        },
+        {
+            "name": "mobile",
             "type": "vcs",
             "url": "https://github.com/nativephp/mobile-air"
         },
-        "ui": {
+        {
+            "name": "ui",
             "type": "vcs",
             "url": "https://github.com/nativephp/native-ui"
         },
-        "plugins": {
+        {
+            "name": "plugins",
             "type": "composer",
             "url": "https://plugins.nativephp.com"
         }
-    },
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.4",
@@ -36,7 +44,7 @@
 
     "require-dev": {
         "fakerphp/faker": "^1.23",
-        "laravel/boost": "^2.0",
+        "laravel/boost": "*",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
         "laravel/sail": "^1.41",
