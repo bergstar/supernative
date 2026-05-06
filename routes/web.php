@@ -11,10 +11,6 @@ use App\NativeComponents\ExploreIcons;
 use App\NativeComponents\ExploreLayout;
 use App\NativeComponents\ExploreSheets;
 use App\NativeComponents\ExploreTypography;
-use App\NativeComponents\FacebookCreate;
-use App\NativeComponents\FacebookFeed;
-use App\NativeComponents\FacebookPost;
-use App\NativeComponents\FacebookProfile;
 use App\NativeComponents\Home;
 use App\NativeComponents\InstagramFeed;
 use App\NativeComponents\InstagramPost;
@@ -86,7 +82,6 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
 
     // Mini app demos
-    Route::native('/facebook', FacebookFeed::class)->name('facebook.feed');
     Route::native('/instagram', InstagramFeed::class)->name('instagram.feed');
     Route::native('/spotify', SpotifyHome::class)->name('spotify.home');
     Route::native('/youtube', YouTubeHome::class)->name('youtube.home');
@@ -94,11 +89,6 @@ Route::nativeGroup(StackLayout::class, function () {
 });
 
 // ── Demo INNER routes — keep their own custom blade chrome ──
-// Facebook
-Route::native('/facebook/post/{id}', FacebookPost::class)->name('facebook.post');
-Route::native('/facebook/profile/{id}', FacebookProfile::class)->name('facebook.profile');
-Route::native('/facebook/create', FacebookCreate::class)->name('facebook.create');
-
 // Instagram
 Route::native('/instagram/post/{id}', InstagramPost::class)->name('instagram.post');
 Route::native('/instagram/profile/{id}', InstagramProfile::class)->name('instagram.profile');

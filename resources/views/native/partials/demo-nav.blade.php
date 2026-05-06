@@ -9,7 +9,6 @@
     />
 
     <native:side-nav-item id="explore" icon="search" url="/" label="Airbnb" />
-    <native:side-nav-item id="facebook" icon="people" url="/facebook" label="Facebook" />
     <native:side-nav-item id="instagram" icon="camera_alt" url="/instagram" label="Instagram" />
     <native:side-nav-item id="spotify" icon="music_note" url="/spotify" label="Spotify" />
     <native:side-nav-item id="youtube" icon="play_circle" url="/youtube" label="YouTube" />
