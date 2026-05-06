@@ -9,7 +9,6 @@
     />
 
     <native:side-nav-item id="explore" icon="search" url="/" label="Airbnb" />
-    <native:side-nav-item id="youtube" icon="play_circle" url="/youtube" label="YouTube" />
 
     <native:divider />
 

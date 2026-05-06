@@ -35,10 +35,6 @@ use App\NativeComponents\SyncUpNative\SyncUpNativeLogin;
 use App\NativeComponents\SyncUpNative\SyncUpNativeProfile;
 use App\NativeComponents\SyncUpProfile;
 use App\NativeComponents\TestLayout;
-use App\NativeComponents\YouTubeChannel;
-use App\NativeComponents\YouTubeHome;
-use App\NativeComponents\YouTubeSearch;
-use App\NativeComponents\YouTubeVideo;
 use Illuminate\Support\Facades\Route;
 use Native\Mobile\Edge\BenchmarkComponent;
 
@@ -74,15 +70,8 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
 
     // Mini app demos
-    Route::native('/youtube', YouTubeHome::class)->name('youtube.home');
     Route::native('/counter', Counter::class)->name('counter');
 });
-
-// ── Demo INNER routes — keep their own custom blade chrome ──
-// YouTube
-Route::native('/youtube/video/{id}', YouTubeVideo::class)->name('youtube.video');
-Route::native('/youtube/channel/{id}', YouTubeChannel::class)->name('youtube.channel');
-Route::native('/youtube/search', YouTubeSearch::class)->name('youtube.search');
 
 // SyncUp messaging — three tab roots share SyncUpTabsLayout; chat detail
 // pushes via StackLayout; login is a chrome-less entry screen.
