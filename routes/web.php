@@ -4,13 +4,6 @@ use App\NativeComponents\Browse;
 use App\NativeComponents\ButtonsForm;
 use App\NativeComponents\Counter;
 use App\NativeComponents\DemoLauncher;
-use App\NativeComponents\ExploreButtons;
-use App\NativeComponents\ExploreCards;
-use App\NativeComponents\ExploreForms;
-use App\NativeComponents\ExploreIcons;
-use App\NativeComponents\ExploreLayout;
-use App\NativeComponents\ExploreSheets;
-use App\NativeComponents\ExploreTypography;
 use App\NativeComponents\Home;
 use App\NativeComponents\ItemDetail;
 use App\NativeComponents\Layouts\NativeStackLayout;
@@ -47,17 +40,7 @@ Route::native('/item/{id}', ItemDetail::class)
 
 // ── Demo HOME routes — get a back-arrow TopBar via StackLayout ──
 Route::nativeGroup(StackLayout::class, function () {
-    // Component showcases (broken out from explore)
-    Route::native('/explore/buttons', ExploreButtons::class)->name('explore.buttons');
-    Route::native('/explore/forms', ExploreForms::class)->name('explore.forms');
-    Route::native('/explore/typography', ExploreTypography::class)->name('explore.typography');
-    Route::native('/explore/cards', ExploreCards::class)->name('explore.cards');
-    Route::native('/explore/icons', ExploreIcons::class)->name('explore.icons');
-    Route::native('/explore/layout', ExploreLayout::class)->name('explore.layout');
-    Route::native('/explore/sheets', ExploreSheets::class)->name('explore.sheets');
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
-
-    // Mini app demos
     Route::native('/counter', Counter::class)->name('counter');
 });
 
