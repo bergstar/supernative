@@ -25,3 +25,8 @@ yarn-error.log
 NUL
 storage/.DS_Store
 .DS_Store
+
+.kiro/
+.agents/
+
+.codex/config.toml
