@@ -1,17 +1,25 @@
 {
     "agents": [
-        "junie",
-        "claude_code"
+        "claude_code",
+        "codex",
+        "kiro"
     ],
+    "cloud": false,
     "guidelines": true,
-    "herd_mcp": false,
     "mcp": true,
-    "nightwatch_mcp": false,
+    "nightwatch": false,
+    "packages": [
+        "nativephp/native-ui",
+        "nativephp/mobile",
+        "nativephp/mobile-device",
+        "nativephp/mobile-dialog"
+    ],
     "sail": false,
     "skills": [
-        "fluxui-development",
+        "laravel-best-practices",
         "livewire-development",
         "pest-testing",
-        "tailwindcss-development"
+        "tailwindcss-development",
+        "nativephp-mobile"
     ]
 }

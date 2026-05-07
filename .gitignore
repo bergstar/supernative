@@ -23,8 +23,12 @@ yarn-error.log
 /.vscode
 /.zed
 NUL
-
-.agents/
-.kiro/
 .DS_Store
-.codex/config.toml
+
+# AI tooling — personal per-developer config
+.agents/
+.claude/
+.codex/
+.devkeepr/
+.junie/
+.kiro/

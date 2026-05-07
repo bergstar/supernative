@@ -1,39 +1,17 @@
 <?php
 
+use App\NativeComponents\CheckboxShowcase;
+use App\NativeComponents\Home;
+use App\NativeComponents\Layouts\NativeTabsLayout;
+use App\NativeComponents\SelectorShowcase;
+use App\NativeComponents\SliderShowcase;
+use App\NativeComponents\TextInputShowcase;
 use Illuminate\Support\Facades\Route;
-use Native\Mobile\Edge\BenchmarkComponent;
 
-Route::native('/', \App\NativeComponents\Explore::class);
-Route::native('/listing/{id}', \App\NativeComponents\ListingDetail::class)->name('listing.show');
-
-Route::native('/benchmark', BenchmarkComponent::class);
-
-//Route::native('/', \App\NativeComponents\TwitterFeed::class)->name('twitter.feed');
-//Route::native('/twitter/tweet/{id}', \App\NativeComponents\TweetDetail::class)->name('twitter.tweet');
-//Route::native('/twitter/profile/{id}', \App\NativeComponents\TwitterProfile::class)->name('twitter.profile');
-//Route::native('/twitter/compose', \App\NativeComponents\ComposeTweet::class)->name('twitter.compose');
-
-//Route::native('/', \App\NativeComponents\IkeaHome::class)->name('ikea.home');
-//Route::native('/ikea/product/{id}', \App\NativeComponents\IkeaProduct::class)->name('ikea.product');
-//Route::native('/ikea/cart', \App\NativeComponents\IkeaCart::class)->name('ikea.cart');
-//Route::native('/ikea/search', \App\NativeComponents\IkeaSearch::class)->name('ikea.search');
-
-//Route::native('/', \App\NativeComponents\FacebookFeed::class)->name('facebook.feed');
-//Route::native('/facebook/post/{id}', \App\NativeComponents\FacebookPost::class)->name('facebook.post');
-//Route::native('/facebook/profile/{id}', \App\NativeComponents\FacebookProfile::class)->name('facebook.profile');
-//Route::native('/facebook/create', \App\NativeComponents\FacebookCreate::class)->name('facebook.create');
-
-//Route::native('/', \App\NativeComponents\InstagramFeed::class)->name('instagram.feed');
-//Route::native('/instagram/post/{id}', \App\NativeComponents\InstagramPost::class)->name('instagram.post');
-//Route::native('/instagram/profile/{id}', \App\NativeComponents\InstagramProfile::class)->name('instagram.profile');
-//Route::native('/instagram/search', \App\NativeComponents\InstagramSearch::class)->name('instagram.search');
-
-//Route::native('/', \App\NativeComponents\SpotifyHome::class)->name('spotify.home');
-//Route::native('/spotify/playlist/{id}', \App\NativeComponents\SpotifyPlaylist::class)->name('spotify.playlist');
-//Route::native('/spotify/artist/{id}', \App\NativeComponents\SpotifyArtist::class)->name('spotify.artist');
-//Route::native('/spotify/search', \App\NativeComponents\SpotifySearch::class)->name('spotify.search');
-
-//Route::native('/', \App\NativeComponents\YouTubeHome::class)->name('youtube.home');
-//Route::native('/youtube/video/{id}', \App\NativeComponents\YouTubeVideo::class)->name('youtube.video');
-//Route::native('/youtube/channel/{id}', \App\NativeComponents\YouTubeChannel::class)->name('youtube.channel');
-//Route::native('/youtube/search', \App\NativeComponents\YouTubeSearch::class)->name('youtube.search');
+Route::nativeGroup(NativeTabsLayout::class, function () {
+    Route::native('/', Home::class)->name('home');
+    Route::native('/slider', SliderShowcase::class)->name('slider');
+    Route::native('/text', TextInputShowcase::class)->name('text');
+    Route::native('/checkbox', CheckboxShowcase::class)->name('checkbox');
+    Route::native('/selector', SelectorShowcase::class)->name('selector');
+});

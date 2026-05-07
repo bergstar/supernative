@@ -1,74 +1,91 @@
-# NativePHP Element Demo
+# NativePHP iOS Starter
 
-A demonstration app showcasing [NativePHP Mobile](https://nativephp.com) with Laravel and Livewire. Renders fully native Android UI components from PHP — no JavaScript frameworks, no WebViews.
+A clean boilerplate for native iOS apps written entirely in PHP, built on
+[NativePHP Mobile](https://nativephp.com). Real SwiftUI chrome — no
+JavaScript frameworks, no WebViews.
 
-> **Android only.** iOS is not supported in this demo.
+What you get out of the box:
 
-> **Not for production.** This is a demo/reference app for exploring NativePHP's Element rendering system.
-
-## What's Inside
-
-The app includes 30+ native component demos that replicate popular app interfaces using mock data:
-
-| Category | Demos |
-|---|---|
-| **Listings** | Airbnb-style explore feed, listing detail (active by default) |
-| **Social** | Twitter feed/profile/compose, Instagram feed/search, Facebook feed/profile |
-| **E-commerce** | IKEA store/cart/search, iHerb store/cart/categories |
-| **Entertainment** | Spotify home/playlists/artists, YouTube home/videos/channels |
-| **Simple** | Counter (increment/decrement) |
-
-Swap active demos by uncommenting routes in `routes/web.php`.
+- A native `NavigationStack` header on every screen
+- A native `TabView` bottom bar with five tabs
+- Liquid Glass material on both bars (iOS 26+)
+- Four wired-up input primitives — slider, text input, checkbox, selector —
+  each on its own tab as a self-contained example
+- Pest smoke tests covering every route
 
 ## Requirements
 
+- PHP 8.4+
 - Composer
-- Android Studio (with an emulator or connected device)
+- Xcode 16+ with an iOS 26 simulator (Liquid Glass renders only on iOS 26+;
+  earlier OSes fall back to standard chrome)
 
-## Getting Started
+## Quick start
 
 ```bash
-# 1. Clone the repo
-git clone <repo-url> && cd native
-
-# 2. Install dependencies & set up the app
 composer install
+cp .env.example .env
+php artisan key:generate
 
-# 3. Install NativePHP
 php artisan native:install
-
-# 4. Run on Android
-php artisan native:run android -W --no-vite
+php artisan native:run
 ```
 
-That's it. The app will build and launch on your connected Android device or emulator.
+`native:run` boots the app in the iOS simulator. The first launch takes a
+minute while NativePHP builds the Swift host app.
 
-## Project Structure
+## Project layout
 
 ```
-app/NativeComponents/       # Native UI components (the demos)
-app/NativeComponents/Concerns/  # Shared traits (mock data, etc.)
-resources/views/native/     # Blade templates using <native:*> elements
-routes/web.php              # Route::native() definitions
+app/NativeComponents/
+├── Home.php                  # Tab 1 — landing screen, all four primitives
+├── SliderShowcase.php        # Tab 2 — live / debounced / on-release slider
+├── TextInputShowcase.php     # Tab 3 — outlined inputs with bindings
+├── CheckboxShowcase.php      # Tab 4 — three checkboxes with state readout
+├── SelectorShowcase.php      # Tab 5 — material/tint pickers + disabled state
+└── Layouts/
+    └── NativeTabsLayout.php  # Sole layout — wires NavigationStack + TabView
+
+resources/views/native/       # One Blade view per component
+routes/web.php                # Single nativeGroup wrapping the five routes
+tests/Feature/HomeTest.php    # Pest dataset asserting every tab renders
 ```
 
-## Switching Demos
+## How it fits together
 
-Edit `routes/web.php` — comment out the current active routes and uncomment whichever demo set you want to try:
+Every route is wrapped in a single `Route::nativeGroup(NativeTabsLayout::class, …)`.
+That layout sets `usesNativeChrome() = true`, which tells NativePHP Mobile to
+render the bars via SwiftUI's `NavigationStack` and `TabView` instead of the
+fallback HStack PHP widgets. With no `backgroundColor` set on either bar, iOS
+26+ paints them with Liquid Glass automatically.
 
-```php
-// Airbnb-style (default)
-Route::native('/', \App\NativeComponents\Explore::class);
-Route::native('/listing/{id}', \App\NativeComponents\ListingDetail::class);
+A component declares its tab title with `navTitle()` and emits its UI from a
+Blade view via `$this->view('home')`. Public properties on the component are
+two-way bound to `<native:slider>`, `<native:outlined-text-input>`,
+`<native:checkbox>`, and `<native:select>` using `native:model` (and the
+`.live`, `.debounce.150ms`, `.blur` modifiers for sliders).
 
-// Twitter
-// Route::native('/', \App\NativeComponents\TwitterFeed::class);
-// ...
+## Testing
 
-// Spotify
-// Route::native('/', \App\NativeComponents\SpotifyHome::class);
-// ...
+```bash
+php artisan test
 ```
+
+The `HomeTest` dataset asserts every tab returns 200. Add a new tab? Add its
+path to the dataset.
+
+## Adding a new tab
+
+1. Create the component:
+   ```bash
+   php artisan make:class NativeComponents/MyTab
+   ```
+   Extend `Native\Mobile\Edge\NativeComponent`, declare `navTitle()` and
+   `render()` returning `$this->view('my-tab')`.
+2. Add the view at `resources/views/native/my-tab.blade.php`.
+3. Register the route inside the `nativeGroup` in `routes/web.php`.
+4. Add the tab to `NativeTabsLayout::tabBar()`.
+5. Add the path to the `HomeTest` dataset.
 
 ## License
 
