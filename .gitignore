@@ -23,3 +23,8 @@ yarn-error.log
 /.vscode
 /.zed
 NUL
+
+.agents/
+.kiro/
+.DS_Store
+.codex/config.toml
