@@ -10,6 +10,7 @@ use App\NativeComponents\ExploreCards;
 use App\NativeComponents\ExploreForms;
 use App\NativeComponents\ExploreIcons;
 use App\NativeComponents\ExploreLayout;
+use App\NativeComponents\ExploreMenus;
 use App\NativeComponents\ExploreSheets;
 use App\NativeComponents\ExploreTypography;
 use App\NativeComponents\FacebookCreate;
@@ -91,6 +92,7 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/explore/icons', ExploreIcons::class)->name('explore.icons');
     Route::native('/explore/layout', ExploreLayout::class)->name('explore.layout');
     Route::native('/explore/sheets', ExploreSheets::class)->name('explore.sheets');
+    Route::native('/explore/menus', ExploreMenus::class)->name('explore.menus');
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
 
     // Mini app demos

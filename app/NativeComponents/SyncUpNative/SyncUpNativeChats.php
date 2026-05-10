@@ -8,6 +8,7 @@ use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
+use Native\Mobile\Facades\Dialog;
 
 class SyncUpNativeChats extends NativeComponent
 {
@@ -65,7 +66,9 @@ class SyncUpNativeChats extends NativeComponent
 
     public function addSuggestion(int $id): void { /* stub */ }
     public function openSearch(): void           { /* stub */ }
-    public function openMenu(): void             { /* stub */ }
+    public function openMenu(): void             {
+        Dialog::toast('hi simon');
+    }
 
     public function render(): Element
     {

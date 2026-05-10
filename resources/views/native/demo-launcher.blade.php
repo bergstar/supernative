@@ -1,15 +1,15 @@
 <native:scroll-view class="w-full h-full bg-theme-background">
+{{--        <native:stack class="w-full h-full items-center justify-center">--}}
+{{--            <native:scroll-view axis="both" class="w-full h-full">--}}
+{{--                <native:image src="https://images.nationalgeographic.org/image/upload/v1638892520/EducationHub/photos/stream-in-colorado.jpg"--}}
+{{--                              class="w-[2400] h-[1600]"/>--}}
+{{--            </native:scroll-view>--}}
 
-{{--    <native:stack class="w-full h-full items-center justify-center">--}}
-{{--        <native:scroll-view axis="both" class="w-full h-full">--}}
-{{--            <native:image src="https://images.nationalgeographic.org/image/upload/v1638892520/EducationHub/photos/stream-in-colorado.jpg"--}}
-{{--                          class="w-[2400] h-[1600]"/>--}}
-{{--        </native:scroll-view>--}}
+{{--            <native:column class="w-full h-full px-10">--}}
+{{--                <native:text class="glass:clear:interactive px-4 text-center py-2 my-64 font-bold rounded-full text-2xl ">This is amazing!</native:text>--}}
+{{--            </native:column>--}}
+{{--        </native:stack>--}}
 
-{{--        <native:column class="w-full h-full px-10">--}}
-{{--            <native:text class="px-4 text-center py-2 my-64 font-bold rounded-full text-2xl glass:clear:interactive">This is amazing!</native:text>--}}
-{{--        </native:column>--}}
-{{--    </native:stack>--}}
 {{--    <native:stack>--}}
 {{--        <native:image--}}
 {{--            src="https://picsum.photos/seed/super-native/800/400"--}}

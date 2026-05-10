@@ -681,24 +681,32 @@
                     <native:button-group :options="['On', 'Off']" :selectedIndex="0" disabled />
                 </native:column>
 
-        {{--        --}}{{-- 28. Carousel --}}
-        {{--        <native:column class="w-full p-4 mx-4 mb-3 rounded-2xl gap-3 border border-[{{ $border }}]" :bg="$card">--}}
-        {{--            <native:text class="text-2xl font-bold" :color="$fg">28. Carousel</native:text>--}}
-        {{--            <native:spacer class="h-2" />--}}
-        {{--            <native:text class="text-base" :color="$muted">Multi-browse (default):</native:text>--}}
-        {{--            <native:carousel item-width="200" item-spacing="8">--}}
-        {{--                @foreach(['nativephp4', 'nativephp5', 'nativephp6', 'nativephp7', 'nativephp8'] as $seed)--}}
-        {{--                    <native:image class="w-[200] h-[150] rounded-2xl" src="https://picsum.photos/seed/{{ $seed }}/400/300" />--}}
-        {{--                @endforeach--}}
-        {{--            </native:carousel>--}}
-        {{--            <native:spacer class="h-2" />--}}
-        {{--            <native:text class="text-base" :color="$muted">Uncontained variant:</native:text>--}}
-        {{--            <native:carousel item-width="150" item-spacing="8" variant="uncontained">--}}
-        {{--                @foreach(['carousel1', 'carousel2', 'carousel3', 'carousel4', 'carousel5'] as $seed)--}}
-        {{--                    <native:image class="w-[150] h-[150] rounded-2xl" src="https://picsum.photos/seed/{{ $seed }}/300/300" />--}}
-        {{--                @endforeach--}}
-        {{--            </native:carousel>--}}
-        {{--        </native:column>--}}
+                {{-- 28. Carousel --}}
+                {{-- Visual regression test for RenderNode modifier-forwarding fix:    --}}
+                {{--   the carousel applies an extraLarge clip per item via its child  --}}
+                {{--   modifier. Pre-fix that modifier was silently dropped on Android  --}}
+                {{--   (items showed only their own rounded-2xl). Post-fix the carousel --}}
+                {{--   slot clipping is visible, and child styles still apply on top.   --}}
+                <native:column class="w-full p-4 mx-4 mb-3 rounded-2xl gap-3 border border-[{{ $border }}]" :bg="$card">
+                    <native:text class="text-2xl font-bold" :color="$fg">28. Carousel</native:text>
+                    <native:spacer class="h-2" />
+                    <native:text class="text-base" :color="$muted">Multi-browse (default):</native:text>
+                    {{-- Multi-browse animates slot width across expand/collapse states; --}}
+                    {{-- children fill the slot (w-full) and crop-fill (fit=2) so the   --}}
+                    {{-- image covers the full slot regardless of its animated aspect.  --}}
+                    <native:carousel item-width="100" item-spacing="8">
+                        @foreach(['nativephp4', 'nativephp5', 'nativephp6', 'nativephp7', 'nativephp8'] as $seed)
+                            <native:image class="" fit="2" src="https://picsum.photos/seed/{{ $seed }}/400/300" />
+                        @endforeach
+                    </native:carousel>
+                    <native:spacer class="h-2" />
+                    <native:text class="text-base" :color="$muted">Uncontained variant:</native:text>
+                    <native:carousel item-width="150" item-spacing="8" variant="uncontained">
+                        @foreach(['carousel1', 'carousel2', 'carousel3', 'carousel4', 'carousel5'] as $seed)
+                            <native:image class="w-full h-[150]" src="https://picsum.photos/seed/{{ $seed }}/300/300" />
+                        @endforeach
+                    </native:carousel>
+                </native:column>
 
         {{-- Footer --}
         {{--        <native:column class="w-full pt-4 px-6 pb-8 gap-2 items-center">--}}

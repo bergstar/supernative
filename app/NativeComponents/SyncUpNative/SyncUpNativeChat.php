@@ -2,12 +2,17 @@
 
 namespace App\NativeComponents\SyncUpNative;
 
+use App\Icons\MaterialOutlined;
 use App\NativeComponents\Concerns\HasSyncUpData;
 use Native\Mobile\Edge\Element;
+use Native\Mobile\Edge\Elements\Divider;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Dialog;
+use App\Icons\Material;
+use App\Icons\SF;
+use Nativephp\NativeUi\Elements\Button;
 
 class SyncUpNativeChat extends NativeComponent
 {
@@ -26,6 +31,9 @@ class SyncUpNativeChat extends NativeComponent
 
     public bool $isMuted = false;
 
+    /** Hide the bottom tab bar on the chat detail — pushed-detail pattern. */
+    protected bool $hidesTabBar = true;
+
     public function mount(): void
     {
         $id = (int) $this->param('id', 1);
@@ -35,32 +43,41 @@ class SyncUpNativeChat extends NativeComponent
 
     public function navTitle(): string
     {
-        return $this->friend()['name'];
+        return "Simon Says";
     }
 
     public function navigationOptions(): ?NavBarOptions
     {
         return NavBarOptions::make()
-            ->action(NavAction::make('video')->icon('video.fill')->press('startVideo'))
-            ->action(NavAction::make('call')->icon('phone.fill')->press('startCall'))
+            ->action(
+                NavAction::make('video')
+                    ->icon(sf: SF::Camera, material: MaterialOutlined::Camera)
+                    ->press('startVideo')
+            )
+            ->action(
+                NavAction::make('call')
+                    ->icon(sf: SF::Phone, material: MaterialOutlined::Phone)
+                    ->press('startCall')
+            )
             ->action(
                 NavAction::make('more')
-                    ->icon('ellipsis')
+                    ->icon(sf: SF::Ellipsis, material: Material::MoreVert)
                     ->items([
                         NavAction::make('mark_read')
-                            ->icon('checkmark.circle')
+                            ->icon(sf: SF::CheckmarkCircle, material: Material::CheckCircle)
                             ->label('Mark all read')
                             ->press('markAllRead'),
                         NavAction::make('mute')
-                            ->icon('bell.slash')
+                            ->icon(sf: SF::BellSlash, material: Material::NotificationsOff)
                             ->label('Mute notifications')
                             ->press('mute'),
                         NavAction::make('archive')
-                            ->icon('archivebox')
+                            ->icon(sf: SF::Archivebox, material: Material::Archive)
                             ->label('Archive')
                             ->press('archive'),
+                        NavAction::divider(),
                         NavAction::make('delete')
-                            ->icon('trash')
+                            ->icon(sf: SF::Trash, material: Material::Delete)
                             ->label('Delete')
                             ->destructive()
                             ->press('deleteIt'),
@@ -142,6 +159,11 @@ class SyncUpNativeChat extends NativeComponent
             return self::suUser($conv['userId']);
         }
         return self::suUser(5);
+    }
+
+    public function markAllRead()
+    {
+        Dialog::toast('Mark all read');
     }
 
     public function render(): Element

@@ -38,8 +38,7 @@ class SyncUpNativeTabsLayout extends NativeLayout
     public function tabBar(NativeComponent $screen): ?TabBar
     {
         return TabBar::make()
-            ->activeColor('#0891b2')
-            ->labelVisibility('labeled')
+            ->activeColor('#0671c2')
             ->add(Tab::link('Chats',   '/syncup-native',         icon: 'chat_bubble')->badge('2'))
             ->add(Tab::link('Friends', '/syncup-native/friends', icon: 'person.3.fill')->news())
             ->add(Tab::link('Profile', '/syncup-native/profile', icon: 'person'));
