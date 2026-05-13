@@ -2,6 +2,8 @@
 
 namespace App\NativeComponents\SyncUpNative\Layouts;
 
+use App\Icons\Material;
+use App\Icons\SF;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBar;
 use Native\Mobile\Edge\Layouts\Builders\Tab;
@@ -38,9 +40,9 @@ class SyncUpNativeTabsLayout extends NativeLayout
     public function tabBar(NativeComponent $screen): ?TabBar
     {
         return TabBar::make()
-            ->add(Tab::link('Messages',   '/syncup-native',         icon: 'chat_bubble')->badge($this->getUnreadMessageCount()))
-            ->add(Tab::link('Friends', '/syncup-native/friends', icon: 'person.3.fill')->news($this->showNewsIndicator()))
-            ->add(Tab::link('Profile', '/syncup-native/profile', icon: 'person'));
+            ->add(Tab::link('Messages', '/syncup-native',         sf: SF::Message, material: Material::ChatBubble)->badge($this->getUnreadMessageCount()))
+            ->add(Tab::link('Friends',  '/syncup-native/friends', sf: SF::Person3, material: Material::Group)->news($this->showNewsIndicator()))
+            ->add(Tab::link('Profile',  '/syncup-native/profile', sf: SF::Person,  material: Material::Person));
     }
 
     public function getUnreadMessageCount()

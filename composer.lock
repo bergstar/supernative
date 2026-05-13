@@ -2613,12 +2613,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NativePHP/mobile-air.git",
-                "reference": "fa262e05d636534ecb88c3dd7940632de7274d60"
+                "reference": "b2b9a21f37c9b3ce204751e194d9dedfe9b79a84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NativePHP/mobile-air/zipball/fa262e05d636534ecb88c3dd7940632de7274d60",
-                "reference": "fa262e05d636534ecb88c3dd7940632de7274d60",
+                "url": "https://api.github.com/repos/NativePHP/mobile-air/zipball/b2b9a21f37c9b3ce204751e194d9dedfe9b79a84",
+                "reference": "b2b9a21f37c9b3ce204751e194d9dedfe9b79a84",
                 "shasum": ""
             },
             "require": {
@@ -2714,7 +2714,7 @@
                 "source": "https://github.com/NativePHP/mobile-air/tree/element",
                 "issues": "https://github.com/NativePHP/mobile-air/issues"
             },
-            "time": "2026-05-11T19:55:30+00:00"
+            "time": "2026-05-13T13:06:24+00:00"
         },
         {
             "name": "nativephp/mobile-device",
@@ -2818,12 +2818,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NativePHP/native-ui.git",
-                "reference": "51c3895199962731734777ee3c06a4e61c8a1d22"
+                "reference": "ae96942582eac5facb78bb1ee0851f74e0ab11a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NativePHP/native-ui/zipball/51c3895199962731734777ee3c06a4e61c8a1d22",
-                "reference": "51c3895199962731734777ee3c06a4e61c8a1d22",
+                "url": "https://api.github.com/repos/NativePHP/native-ui/zipball/ae96942582eac5facb78bb1ee0851f74e0ab11a9",
+                "reference": "ae96942582eac5facb78bb1ee0851f74e0ab11a9",
                 "shasum": ""
             },
             "require": {
@@ -2869,7 +2869,7 @@
                 "source": "https://github.com/NativePHP/native-ui/tree/main",
                 "issues": "https://github.com/NativePHP/native-ui/issues"
             },
-            "time": "2026-05-10T20:01:41+00:00"
+            "time": "2026-05-13T13:07:13+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -3049,12 +3049,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "056e6b2486d1f0573756228db991b7aaef096ffb"
+                "reference": "7da6c396d7ebe142bc857c20479d5e70a5e1aac7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/056e6b2486d1f0573756228db991b7aaef096ffb",
-                "reference": "056e6b2486d1f0573756228db991b7aaef096ffb",
+                "url": "https://api.github.com/repos/nette/utils/zipball/7da6c396d7ebe142bc857c20479d5e70a5e1aac7",
+                "reference": "7da6c396d7ebe142bc857c20479d5e70a5e1aac7",
                 "shasum": ""
             },
             "require": {
@@ -3132,7 +3132,7 @@
                 "issues": "https://github.com/nette/utils/issues",
                 "source": "https://github.com/nette/utils/tree/v4.1.4"
             },
-            "time": "2026-05-11T19:33:07+00:00"
+            "time": "2026-05-11T20:49:54+00:00"
         },
         {
             "name": "nikic/php-parser",

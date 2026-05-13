@@ -140,6 +140,6 @@ class NativeTabsHome extends NativeComponent
 
     public function render(): \Illuminate\View\View
     {
-        return view('native-tabs-home');
+        return view('native.native-tabs-home');
     }
 }

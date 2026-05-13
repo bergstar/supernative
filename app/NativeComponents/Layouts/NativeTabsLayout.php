@@ -2,6 +2,8 @@
 
 namespace App\NativeComponents\Layouts;
 
+use App\Icons\Material;
+use App\Icons\SF;
 use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Elements\Icon;
 use Native\Mobile\Edge\Elements\Row;
@@ -45,13 +47,16 @@ class NativeTabsLayout extends NativeLayout
         return TabBar::make()
             ->activeColor('#A855F7')
             ->minimizeOnScroll()
-            ->add(Tab::link('Home', '/native-tabs', icon: 'house')->badge('3'))
+            ->add(Tab::link('Home', '/native-tabs',
+                sf: SF::House, material: Material::Home)->badge('3'))
             ->add(Tab::search(
                 'Search',
-                icon: 'search',
                 placeholder: 'Search articles, songs, people…',
+                sf: SF::Magnifyingglass,
+                material: Material::Search,
             ))
-            ->add(Tab::link('Profile', '/native-tabs/profile', icon: 'person'));
+            ->add(Tab::link('Profile', '/native-tabs/profile',
+                sf: SF::Person, material: Material::Person));
     }
 
     /**

@@ -1,6 +1,9 @@
 <?php
 
+use App\NativeComponents\Animate;
 use App\NativeComponents\Browse;
+use App\NativeComponents\MailDemo;
+use App\NativeComponents\RefreshableDemo;
 use App\NativeComponents\ButtonsForm;
 use App\NativeComponents\ComposeTweet;
 use App\NativeComponents\Counter;
@@ -85,6 +88,10 @@ Route::native('/item/{id}', ItemDetail::class)
 // ── Demo HOME routes — get a back-arrow TopBar via StackLayout ──
 Route::nativeGroup(StackLayout::class, function () {
     // Component showcases (broken out from explore)
+    Route::native('/counter', Counter::class)->name('counter');
+    Route::native('/animate', Animate::class)->name('animate');
+    Route::native('/mail-demo', MailDemo::class)->name('mail.demo');
+    Route::native('/refreshable-demo', RefreshableDemo::class)->name('refreshable.demo');
     Route::native('/explore/buttons', ExploreButtons::class)->name('explore.buttons');
     Route::native('/explore/forms', ExploreForms::class)->name('explore.forms');
     Route::native('/explore/typography', ExploreTypography::class)->name('explore.typography');
@@ -93,6 +100,7 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/explore/layout', ExploreLayout::class)->name('explore.layout');
     Route::native('/explore/sheets', ExploreSheets::class)->name('explore.sheets');
     Route::native('/explore/menus', ExploreMenus::class)->name('explore.menus');
+    Route::native('/buttons-form', ButtonsForm::class)->name('buttons.form');
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
 
     // Mini app demos
@@ -102,7 +110,6 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/instagram', InstagramFeed::class)->name('instagram.feed');
     Route::native('/spotify', SpotifyHome::class)->name('spotify.home');
     Route::native('/youtube', YouTubeHome::class)->name('youtube.home');
-    Route::native('/counter', Counter::class)->name('counter');
 });
 
 // ── Demo INNER routes — keep their own custom blade chrome ──
@@ -163,9 +170,7 @@ Route::nativeGroup(SyncUpNativeTabsLayout::class, function () {
 Route::native('/syncup-native/login', SyncUpNativeLogin::class)->name('syncup-native.login');
 
 // ── NavigationStack + Form/Section demo (SwiftUI grouped-form replica) ──
-Route::native('/buttons-form', ButtonsForm::class)
-    ->layout(NativeStackLayout::class)
-    ->name('buttons.form');
+
 
 // ── Native chrome — NavigationStack-rendered top bar ──
 Route::nativeGroup(NativeStackLayout::class, function () {

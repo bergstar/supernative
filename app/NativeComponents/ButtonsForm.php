@@ -35,6 +35,6 @@ class ButtonsForm extends NativeComponent
 
     public function render(): \Illuminate\View\View
     {
-        return view('buttons-form');
+        return view('native.buttons-form');
     }
 }

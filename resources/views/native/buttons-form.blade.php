@@ -1,19 +1,6 @@
-{{-- Theme-token-driven so the page auto-flips in dark mode:
-       bg-theme-background   page root
-       bg-theme-surface      cards
-       text-theme-on-surface         row labels
-       text-theme-on-surface-variant section headers
---}}
-<native:scroll-view class="w-full h-full bg-theme-background">
-    <native:column class="w-full px-4 pt-2 pb-8 gap-6">
 
-        <native:column class="w-full bg-theme-surface rounded-xl">
-            <native:row class="w-full px-4 py-3 items-center">
-                <native:text class="text-base text-theme-on-surface">Disable buttons</native:text>
-                <native:spacer />
-                <native:toggle native:model="disabled" />
-            </native:row>
-        </native:column>
+<native:scroll-view class="w-full h-full bg-theme-background">
+    <native:column class="w-full px-4 pt-6 pb-8 gap-6">
 
         <native:column class="w-full gap-2">
             <native:text class="text-xs uppercase font-semibold text-theme-on-surface-variant px-4">Variants</native:text>
@@ -23,25 +10,25 @@
                     <native:spacer />
                     <native:button variant="primary" size="sm" :disabled="$disabled" @press="tap('primary')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Secondary</native:text>
                     <native:spacer />
                     <native:button variant="secondary" size="sm" :disabled="$disabled" @press="tap('secondary')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Destructive</native:text>
                     <native:spacer />
                     <native:button variant="destructive" size="sm" :disabled="$disabled" @press="tap('destructive')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Accent</native:text>
                     <native:spacer />
                     <native:button variant="accent" size="sm" :disabled="$disabled" @press="tap('accent')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Ghost</native:text>
                     <native:spacer />
@@ -58,13 +45,13 @@
                     <native:spacer />
                     <native:button variant="primary" size="sm" :disabled="$disabled" @press="tap('sm')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Medium</native:text>
                     <native:spacer />
                     <native:button variant="primary" size="md" :disabled="$disabled" @press="tap('md')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Large</native:text>
                     <native:spacer />
@@ -81,13 +68,13 @@
                     <native:spacer />
                     <native:button variant="primary" size="sm" icon="add" :disabled="$disabled" @press="tap('with_icon')">Add</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">With trailing icon</native:text>
                     <native:spacer />
                     <native:button variant="secondary" size="sm" icon-trailing="arrow.right" :disabled="$disabled" @press="tap('with_trailing')">Next</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Loading</native:text>
                     <native:spacer />
@@ -96,10 +83,7 @@
             </native:column>
         </native:column>
 
-        {{-- Glass section now spans Button + Text + Pressable + Card + Chip
-             so we can verify the new bitflag grammar lands consistently
-             across the renderer matrix. iOS 26+ shows real Liquid Glass;
-             older iOS falls back to .regularMaterial / bordered styles. --}}
+        @ios
         <native:column class="w-full gap-2">
             <native:text class="text-xs uppercase font-semibold text-theme-on-surface-variant px-4">Glass · buttons (iOS 26+)</native:text>
             <native:column class="w-full bg-theme-surface rounded-xl">
@@ -108,25 +92,25 @@
                     <native:spacer />
                     <native:button class="glass" size="sm" :disabled="$disabled" @press="tap('glass')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">glass:prominent</native:text>
                     <native:spacer />
                     <native:button class="glass:prominent" variant="primary" size="sm" :disabled="$disabled" @press="tap('glass_prominent')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">glass:prominent + destructive</native:text>
                     <native:spacer />
                     <native:button class="glass:prominent" variant="destructive" size="sm" :disabled="$disabled" @press="tap('glass_destr')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">glass:prominent + accent</native:text>
                     <native:spacer />
                     <native:button class="glass:prominent" variant="accent" size="sm" :disabled="$disabled" @press="tap('glass_accent')">Label</native:button>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">glass:prominent:interactive</native:text>
                     <native:spacer />
@@ -143,7 +127,7 @@
                     <native:spacer />
                     <native:text class="px-3 py-2 rounded-full text-sm text-theme-on-surface glass">Action</native:text>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Pressable + interactive</native:text>
                     <native:spacer />
@@ -151,13 +135,13 @@
                         <native:text class="text-sm text-theme-on-surface">Tap me</native:text>
                     </native:pressable>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Glass · clear (text)</native:text>
                     <native:spacer />
                     <native:text class="px-3 py-2 rounded-full text-sm text-theme-on-surface glass:clear">Action</native:text>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Glass · clear:interactive (pressable)</native:text>
                     <native:spacer />
@@ -165,36 +149,34 @@
                         <native:text class="text-sm text-theme-on-surface">Tap</native:text>
                     </native:pressable>
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Chip · glass</native:text>
                     <native:spacer />
                     <native:chip class="glass" label="Filter" :value="false" />
                 </native:row>
-                <native:divider class="ml-4" />
+                <native:divider class="mx-4" />
                 <native:row class="w-full px-4 py-3 items-center">
                     <native:text class="text-base text-theme-on-surface">Chip · glass:clear</native:text>
                     <native:spacer />
                     <native:chip class="glass:clear" label="Filter" :value="false" />
                 </native:row>
-                <native:divider class="ml-4" />
-                <native:row class="w-full px-4 py-3 items-center">
-                    <native:text class="text-base text-theme-on-surface">Badge · glass</native:text>
-                    <native:spacer />
-                    <native:badge class="glass" label="NEW" variant="accent" />
-                </native:row>
-                <native:divider class="ml-4" />
-                <native:row class="w-full px-4 py-3 items-center">
-                    <native:text class="text-base text-theme-on-surface">Badge · glass:clear</native:text>
-                    <native:spacer />
-                    <native:badge class="glass:clear" label="NEW" variant="accent" />
-                </native:row>
             </native:column>
         </native:column>
 
+        <native:stack class="w-full h-full items-center justify-center">
+            <native:scroll-view axis="both" class="w-full h-full rounded-lg shadow-lg">
+                <native:image src="https://images.nationalgeographic.org/image/upload/v1638892520/EducationHub/photos/stream-in-colorado.jpg"
+                              class="w-[2400] h-[1600]"/>
+            </native:scroll-view>
+
+            <native:column class="w-full h-full px-10">
+                <native:text class="glass:clear:interactive px-4 text-center py-2 my-64 font-bold rounded-full text-2xl ">Liquid Glass Baby</native:text>
+            </native:column>
+        </native:stack>
         <native:column class="w-full gap-2">
             <native:text class="text-xs uppercase font-semibold text-theme-on-surface-variant px-4">Glass · cards</native:text>
-            <native:card class="glass">
+            <native:card class="glass:interactive">
                 <native:column class="w-full p-5 gap-2">
                     <native:text class="text-lg font-semibold text-theme-on-surface">Glass card · regular</native:text>
                     <native:text class="text-sm text-theme-on-surface-variant">
@@ -204,7 +186,7 @@
                     </native:text>
                 </native:column>
             </native:card>
-            <native:card class="glass:clear">
+            <native:card class="glass:clear:interactive">
                 <native:column class="w-full p-5 gap-2">
                     <native:text class="text-lg font-semibold text-theme-on-surface">Glass card · clear</native:text>
                     <native:text class="text-sm text-theme-on-surface-variant">
@@ -213,7 +195,7 @@
                     </native:text>
                 </native:column>
             </native:card>
-            <native:card class="glass:clear bg-red-300/30">
+            <native:card class="glass:clear:interactive bg-red-300/50">
                 <native:column class="w-full p-5 gap-2">
                     <native:text class="text-lg font-semibold text-theme-on-surface">Glass card · tinted</native:text>
                     <native:text class="text-sm text-theme-on-surface-variant">
@@ -224,13 +206,7 @@
                 </native:column>
             </native:card>
         </native:column>
-
-        @if ($taps > 0)
-            <native:column class="w-full px-4 pt-2 gap-1">
-                <native:text class="text-xs uppercase font-semibold text-theme-on-surface-variant">Last tap</native:text>
-                <native:text class="text-sm text-theme-on-surface">{{ $lastTapped }} · {{ $taps }} {{ $taps === 1 ? 'tap' : 'taps' }} total</native:text>
-            </native:column>
-        @endif
+        @endios
 
     </native:column>
 </native:scroll-view>

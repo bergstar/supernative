@@ -2,6 +2,8 @@
 
 namespace App\NativeComponents\Layouts;
 
+use App\Icons\Material;
+use App\Icons\SF;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBar;
 use Native\Mobile\Edge\Layouts\Builders\Tab;
@@ -37,7 +39,9 @@ class SyncUpTabsLayout extends NativeLayout
             ->backgroundColor('#0891b2')                            // bar bg
             ->textColor('#FFFFFF')                                  // title + icon tint
             ->elevation(8)                                          // subtle shadow under bar
-            ->action(NavAction::make('search')->icon('search')->press('openSearch'));
+            ->action(NavAction::make('search')
+                ->icon(sf: SF::Magnifyingglass, material: Material::Search)
+                ->press('openSearch'));
     }
 
     public function tabBar(NativeComponent $screen): ?TabBar
@@ -45,8 +49,8 @@ class SyncUpTabsLayout extends NativeLayout
         return TabBar::make()
             ->activeColor('#0891b2')                                // active item color
             ->labelVisibility('labeled')                            // try 'selected' / 'unlabeled' to test
-            ->add(Tab::link('Chats', '/syncup', icon: 'chat_bubble')->badge('2'))
-            ->add(Tab::link('Friends', '/syncup/friends', icon: 'person.3.fill')->news())
-            ->add(Tab::link('Profile', '/syncup/profile', icon: 'person'));
+            ->add(Tab::link('Chats',   '/syncup',         sf: SF::Message, material: Material::ChatBubble)->badge('2'))
+            ->add(Tab::link('Friends', '/syncup/friends', sf: SF::Person3, material: Material::Group)->news())
+            ->add(Tab::link('Profile', '/syncup/profile', sf: SF::Person,  material: Material::Person));
     }
 }

@@ -1,11 +1,18 @@
-<native:column class="w-full h-full items-center justify-center bg-white gap-4">
-    <native:text class="text-6xl font-bold text-orange-600">{{$count * 100}}</native:text>
-    <native:row class="gap-8 justify-center">
-        <native:column @press="decrement" class="px-8 py-4 shadow rounded bg-red-400" center>
-            <native:text  class="text-center text-2xl text-white">👇</native:text>
-        </native:column>
-        <native:column @press="increment" class="px-8 py-4 shadow rounded bg-blue-400" center>
-            <native:text class="text-center font-bold text-2xl text-white">👆</native:text>
-        </native:column>
-    </native:row>
-</native:column>
+<column class="w-full h-full items-center justify-center bg-white gap-4">
+    <text class="text-[100] font-bold text-purple-500">{{$count * now()->dayOfDecade()}}</text>
+    <row class="gap-8 justify-center">
+        <column @press="decrement" class="px-8 py-4 shadow rounded bg-red-500">
+            <native:icon :size="40" class="text-center  text-white"
+                         :material="App\Icons\Material::Dehaze"
+                         :sf="App\Icons\SF::ChevronDown"
+            />
+        </column>
+
+        <column @press="increment" class="px-8 py-4 shadow rounded bg-blue-500" >
+            <icon :size="40" class="text-center text-white"
+                  :material="App\Icons\MaterialOutlined::AccessAlarm"
+                  :sf="App\Icons\SF::ChevronUp"
+            />
+        </column>
+    </row>
+</column>

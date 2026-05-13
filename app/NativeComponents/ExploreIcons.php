@@ -13,6 +13,6 @@ class ExploreIcons extends NativeComponent
 
     public function render(): \Illuminate\View\View
     {
-        return view('explore.icons');
+        return view('native.explore.icons');
     }
 }
