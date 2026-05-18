@@ -2,11 +2,14 @@
 
 namespace App\NativeComponents;
 
+use App\NativeComponents\Concerns\WithNavBarActions;
 use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class CheckboxShowcase extends NativeComponent
 {
+    use WithNavBarActions;
+
     public bool $newsletter = true;
 
     public bool $marketing = false;

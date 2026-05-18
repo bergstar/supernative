@@ -2,11 +2,14 @@
 
 namespace App\NativeComponents;
 
+use App\NativeComponents\Concerns\WithNavBarActions;
 use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class TextInputShowcase extends NativeComponent
 {
+    use WithNavBarActions;
+
     public string $name = '';
 
     public string $email = '';

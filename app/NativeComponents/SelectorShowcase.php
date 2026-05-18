@@ -2,11 +2,14 @@
 
 namespace App\NativeComponents;
 
+use App\NativeComponents\Concerns\WithNavBarActions;
 use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class SelectorShowcase extends NativeComponent
 {
+    use WithNavBarActions;
+
     public string $material = 'Liquid Glass';
 
     public string $tint = 'Purple';
