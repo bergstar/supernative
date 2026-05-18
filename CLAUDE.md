@@ -621,3 +621,190 @@ onUnmounted(() => {
   - `string $label` - Button label text
 
 </laravel-boost-guidelines>
+
+=== nativephp/mobile-device rules ===
+
+## nativephp/device
+
+Device hardware operations including vibration, flashlight, device info, and battery status.
+
+### PHP Usage (Livewire/Blade)
+
+<code-snippet name="Device Operations" lang="php">
+use Native\Mobile\Facades\Device;
+
+// Get unique device ID
+$id = Device::getId();
+
+// Get device info (JSON)
+$info = Device::getInfo();
+$deviceInfo = json_decode($info);
+// $deviceInfo->platform, $deviceInfo->model, $deviceInfo->osVersion
+
+// Vibrate the device
+Device::vibrate();
+
+// Toggle flashlight
+$result = Device::flashlight();
+// result.state = true (on) or false (off)
+
+// Get battery info
+$batteryInfo = Device::getBatteryInfo();
+// batteryLevel: 0-1 (e.g., 0.85 = 85%), isCharging: true/false
+</code-snippet>
+
+### JavaScript Usage (Vue/React/Inertia)
+
+<code-snippet name="Device Operations in JavaScript" lang="javascript">
+import { device } from '#nativephp';
+
+// Get unique device ID
+const result = await device.getId();
+const deviceId = result.id;
+
+// Get device info
+const infoResult = await device.getInfo();
+const deviceInfo = JSON.parse(infoResult.info);
+console.log(deviceInfo.platform);  // 'ios' or 'android'
+console.log(deviceInfo.model);     // e.g., 'iPhone13,4'
+console.log(deviceInfo.osVersion); // e.g., '17.0'
+
+// Vibrate the device
+await device.vibrate();
+
+// Toggle flashlight
+const flashResult = await device.flashlight();
+console.log(flashResult.state); // true = on, false = off
+
+// Get battery info
+const batteryResult = await device.getBatteryInfo();
+const battery = JSON.parse(batteryResult.info);
+console.log(batteryResult.batteryLevel); // 0-1
+console.log(batteryResult.isCharging);   // true/false
+</code-snippet>
+
+### Device Info Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| name | string | Device name |
+| model | string | Device model identifier |
+| platform | 'ios' \| 'android' | Operating platform |
+| osVersion | string | OS version string |
+| isVirtual | boolean | Running in simulator/emulator |
+| memUsed | number | App memory usage in bytes |
+| webViewVersion | string | Browser version |
+
+### Battery Info Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| batteryLevel | number | Charge percentage (0-1) |
+| isCharging | boolean | Current charging status |
+
+=== nativephp/mobile-dialog rules ===
+
+## nativephp/dialog
+
+Native alert dialogs and toast notifications for NativePHP Mobile applications.
+
+### PHP Usage (Livewire/Blade)
+
+<code-snippet name="Alert Dialogs" lang="php">
+use Native\Mobile\Facades\Dialog;
+
+// Simple alert with custom buttons (max 3)
+Dialog::alert(
+    'Confirm Action',
+    'Are you sure you want to delete this item?',
+    ['Cancel', 'Delete']
+);
+</code-snippet>
+
+<code-snippet name="Toast Notifications" lang="php">
+use Native\Mobile\Facades\Dialog;
+
+// Display a brief toast notification
+Dialog::toast('Item saved successfully!');
+</code-snippet>
+
+### JavaScript Usage (Vue/React/Inertia)
+
+<code-snippet name="Dialogs in JavaScript" lang="javascript">
+import { dialog, on, off, Events } from '#nativephp';
+
+// Simple alert
+await dialog.alert('Confirm Action', 'Are you sure?', ['Cancel', 'Delete']);
+
+// Fluent builder API
+await dialog.alert()
+    .title('Confirm Action')
+    .message('Are you sure you want to delete this item?')
+    .buttons(['Cancel', 'Delete']);
+
+// Quick confirm dialog
+await dialog.alert().confirm('Confirm Action', 'Are you sure?');
+
+// Toast notification
+await dialog.toast('Item saved successfully!');
+</code-snippet>
+
+### Handling Alert Events
+
+#### PHP
+
+<code-snippet name="Button Press Events" lang="php">
+use Native\Mobile\Attributes\OnNative;
+use Native\Mobile\Events\Alert\ButtonPressed;
+
+#[OnNative(ButtonPressed::class)]
+public function handleAlertButton($index, $label)
+{
+    switch ($index) {
+        case 0:
+            Dialog::toast("You pressed '{$label}'");
+            break;
+        case 1:
+            $this->performAction();
+            Dialog::toast("You pressed '{$label}'");
+            break;
+    }
+}
+</code-snippet>
+
+#### Vue
+
+<code-snippet name="Button Press Events in Vue" lang="javascript">
+import { dialog, on, off, Events } from '#nativephp';
+import { onMounted, onUnmounted } from 'vue';
+
+const handleButtonPressed = (payload) => {
+    const { index, label } = payload;
+    if (index === 1) {
+        performAction();
+    }
+    dialog.toast(`You pressed '${label}'`);
+};
+
+onMounted(() => {
+    on(Events.Alert.ButtonPressed, handleButtonPressed);
+});
+
+onUnmounted(() => {
+    off(Events.Alert.ButtonPressed, handleButtonPressed);
+});
+</code-snippet>
+
+### Button Positioning
+
+- 1 button: Positive (OK/Confirm)
+- 2 buttons: Negative (Cancel) + Positive (OK/Confirm)
+- 3 buttons: Negative (Cancel) + Neutral (Maybe) + Positive (OK/Confirm)
+
+### Events
+
+- `Native\Mobile\Events\Alert\ButtonPressed` - Fired when alert button is tapped
+  - `int $index` - Button index (0-based)
+  - `string $label` - Button label text
+
+</laravel-boost-guidelines>
