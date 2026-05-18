@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1eb2f502863eda7640a139cf34ca2ba3",
+    "content-hash": "14c4f36ea422bb96aa3fb0e147b3170b",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2538,50 +2538,6 @@
             "time": "2026-05-18T14:58:40+00:00"
         },
         {
-            "name": "nativephp/mobile-background-tasks",
-            "version": "0.0.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://plugins.nativephp.com/dist/nativephp/mobile-background-tasks/nativephp-mobile-background-tasks-d7c25148d9bebe78e74ba8b125673969d94fb151-zip-58d276.zip",
-                "reference": "d7c25148d9bebe78e74ba8b125673969d94fb151",
-                "shasum": "9bdf0a82d7ec826d9081b96fc72acf53fbe6ace8"
-            },
-            "require": {
-                "nativephp/mobile": "^3.2.1",
-                "php": "^8.2"
-            },
-            "type": "nativephp-plugin",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "NativePHP\\BackgroundTasks\\BackgroundTasksServiceProvider"
-                    ]
-                },
-                "nativephp": {
-                    "manifest": "nativephp.json"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "NativePHP\\BackgroundTasks\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "NativePHP",
-                    "email": "support@nativephp.com"
-                }
-            ],
-            "description": "Background task scheduling via WorkManager for NativePHP Mobile",
-            "support": {
-                "issues": "https://github.com/NativePHP/mobile-background-tasks/issues"
-            },
-            "time": "2026-04-24T15:21:34+00:00"
-        },
-        {
             "name": "nativephp/mobile-device",
             "version": "1.0.1",
             "source": {
@@ -2676,6 +2632,244 @@
                 "source": "https://github.com/NativePHP/mobile-dialog/tree/1.0.0"
             },
             "time": "2026-01-19T23:53:05+00:00"
+        },
+        {
+            "name": "nativephp/mobile-firebase",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bergstar/mobile-firebase.git",
+                "reference": "a4bf9b8bb9991c05d35dc1ac60988fdee8e8c411"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bergstar/mobile-firebase/zipball/a4bf9b8bb9991c05d35dc1ac60988fdee8e8c411",
+                "reference": "a4bf9b8bb9991c05d35dc1ac60988fdee8e8c411",
+                "shasum": ""
+            },
+            "require": {
+                "nativephp/mobile": "*",
+                "php": "^8.2"
+            },
+            "type": "nativephp-plugin",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Native\\Mobile\\Providers\\PushNotificationsServiceProvider"
+                    ]
+                },
+                "nativephp": {
+                    "manifest": "nativephp.json"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Native\\Mobile\\Providers\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "NativePHP",
+                    "email": "info@nativephp.com"
+                }
+            ],
+            "description": "Firebase plugin for NativePHP Mobile (Push notifications via FCM/APNs)",
+            "time": "2026-05-18T19:55:27+00:00"
+        },
+        {
+            "name": "nativephp/mobile-geolocation",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bergstar/mobile-geolocation.git",
+                "reference": "4422d5f7ab9d5dbe243dc73db82e53462c95ecd6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bergstar/mobile-geolocation/zipball/4422d5f7ab9d5dbe243dc73db82e53462c95ecd6",
+                "reference": "4422d5f7ab9d5dbe243dc73db82e53462c95ecd6",
+                "shasum": ""
+            },
+            "require": {
+                "nativephp/mobile": "^3.0",
+                "php": "^8.2"
+            },
+            "type": "nativephp-plugin",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Native\\Mobile\\Providers\\GeolocationServiceProvider"
+                    ]
+                },
+                "nativephp": {
+                    "manifest": "nativephp.json"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Native\\Mobile\\Providers\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "NativePHP",
+                    "email": "support@nativephp.com"
+                }
+            ],
+            "description": "Geolocation plugin for NativePHP Mobile - GPS location and permission handling",
+            "time": "2026-05-18T19:55:56+00:00"
+        },
+        {
+            "name": "nativephp/mobile-local-notifications",
+            "version": "v0.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bergstar/mobile-local-notifications.git",
+                "reference": "72c303da9ff93b841d956f5cccf3b2fd08eaca3d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bergstar/mobile-local-notifications/zipball/72c303da9ff93b841d956f5cccf3b2fd08eaca3d",
+                "reference": "72c303da9ff93b841d956f5cccf3b2fd08eaca3d",
+                "shasum": ""
+            },
+            "require": {
+                "nativephp/mobile": "^3.2.1",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "pestphp/pest": "^3.0"
+            },
+            "type": "nativephp-plugin",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NativePHP\\LocalNotifications\\LocalNotificationsServiceProvider"
+                    ]
+                },
+                "nativephp": {
+                    "manifest": "nativephp.json"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NativePHP\\LocalNotifications\\": "src/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "pest"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "NativePHP",
+                    "email": "support@nativephp.com"
+                }
+            ],
+            "description": "Local notifications for NativePHP Mobile with Laravel Notification channel integration",
+            "time": "2026-05-18T19:56:26+00:00"
+        },
+        {
+            "name": "nativephp/mobile-scanner",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bergstar/mobile-scanner.git",
+                "reference": "855c4642999b08617fd0c94d42b961b89efe7add"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bergstar/mobile-scanner/zipball/855c4642999b08617fd0c94d42b961b89efe7add",
+                "reference": "855c4642999b08617fd0c94d42b961b89efe7add",
+                "shasum": ""
+            },
+            "require": {
+                "nativephp/mobile": "^3.0",
+                "php": "^8.2"
+            },
+            "type": "nativephp-plugin",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Native\\Mobile\\Providers\\ScannerServiceProvider"
+                    ]
+                },
+                "nativephp": {
+                    "manifest": "nativephp.json"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Native\\Mobile\\Providers\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "NativePHP",
+                    "email": "support@nativephp.com"
+                }
+            ],
+            "description": "QR code and barcode scanner plugin for NativePHP Mobile - supports multiple barcode formats with continuous scanning",
+            "time": "2026-05-18T19:56:56+00:00"
+        },
+        {
+            "name": "nativephp/mobile-secure-storage",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bergstar/mobile-secure-storage.git",
+                "reference": "48e7fbee7e82bd023ffecd56f1691cf59d623af8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bergstar/mobile-secure-storage/zipball/48e7fbee7e82bd023ffecd56f1691cf59d623af8",
+                "reference": "48e7fbee7e82bd023ffecd56f1691cf59d623af8",
+                "shasum": ""
+            },
+            "require": {
+                "nativephp/mobile": "^3.0",
+                "php": "^8.2"
+            },
+            "type": "nativephp-plugin",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Native\\Mobile\\Providers\\SecureStorageServiceProvider"
+                    ]
+                },
+                "nativephp": {
+                    "manifest": "nativephp.json"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Native\\Mobile\\Providers\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "NativePHP",
+                    "email": "support@nativephp.com"
+                }
+            ],
+            "description": "Secure storage plugin for NativePHP Mobile (Keychain/EncryptedSharedPreferences)",
+            "time": "2026-05-18T19:57:24+00:00"
         },
         {
             "name": "nativephp/native-ui",

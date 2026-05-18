@@ -45,6 +45,8 @@ class NativeServiceProvider extends ServiceProvider
             //            \Native\Mobile\Providers\TimerServiceProvider::class,
             //            \Native\Mobile\Providers\DebugLogServiceProvider::class,
             //            \NativePhp\SkiaCanvas\SkiaCanvasServiceProvider::class,
+            \NativePHP\BackgroundTasks\BackgroundTasksServiceProvider::class,
+        
         ];
     }
 }

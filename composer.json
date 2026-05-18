@@ -9,17 +9,42 @@
     ],
     "repositories": [
         {
-            "name": "nativephp-plugins",
+            "type": "vcs",
+            "url": "https://github.com/bergstar/mobile-background-tasks"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bergstar/mobile-biometrics"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bergstar/mobile-firebase"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bergstar/mobile-geolocation"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bergstar/mobile-local-notifications"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bergstar/mobile-scanner"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bergstar/mobile-secure-storage"
+        },
+        {
             "type": "composer",
             "url": "https://plugins.nativephp.com"
         },
         {
-            "name": "mobile",
             "type": "vcs",
             "url": "https://github.com/nativephp/mobile-air"
         },
         {
-            "name": "ui",
             "type": "vcs",
             "url": "https://github.com/nativephp/native-ui"
         }
@@ -30,11 +55,15 @@
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
         "livewire/livewire": "^4.0",
-        "nativephp/native-ui": "dev-main",
         "nativephp/mobile": "dev-element as 3.3.4",
         "nativephp/mobile-device": "^1.0",
         "nativephp/mobile-dialog": "^1.0",
-        "nativephp/mobile-background-tasks": "^0.0.3"
+        "nativephp/mobile-firebase": "^1.1",
+        "nativephp/mobile-geolocation": "^1.0",
+        "nativephp/mobile-local-notifications": "^0.0.2",
+        "nativephp/mobile-scanner": "^1.0",
+        "nativephp/mobile-secure-storage": "^1.0",
+        "nativephp/native-ui": "dev-main"
     },
 
     "require-dev": {
